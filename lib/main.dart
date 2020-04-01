@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'myData.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
+
   }
 }
 
@@ -35,45 +37,74 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            expandedHeight:300,
-            floating: false,
-            pinned: false,
-            flexibleSpace:FlexibleSpaceBar(
-              title:Text("City"),
-              background: Image.network("https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg"
-                , fit:BoxFit.fill,),
-            ) ,
-          ),
-          SliverFillRemaining(
-            child:Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'You have pushed the button this many times:',
-                  ),
-                  Text(
-                    '$_counter',
-                    style: Theme.of(context).textTheme.display1,
-                  ),
-                ],
-              ),
-            ),
-
-
-            ),
-
-        ],
-      ),
+      body:_buildScrollableView(context),
 
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _buildScrollableView(BuildContext context){
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(title:Text('Hello')),
+        SliverList(
+          delegate: SliverChildListDelegate(
+              Kitten.kittens.map((name) => _buildTitle(context,name)).toList()),
+
+        )
+      ],
+    );
+  }
+
+
+ Widget _buildTitle(BuildContext context,Kitten kitten){
+    final style = Theme.of(context).textTheme.title;
+    return Row(
+      children: <Widget>[
+        Text(kitten.name,
+          style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.0),
+        ),
+      ],
+    );
+
+ }
+ Widget _buildScrollableView01(BuildContext context){
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverAppBar(
+          expandedHeight:300,
+          floating: false,
+          pinned: false,
+          flexibleSpace:FlexibleSpaceBar(
+            title:Text("My City"),
+            background: Image.network("https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg"
+              , fit:BoxFit.fill,),
+          ) ,
+        ),
+        SliverFillRemaining(
+          child:Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.display1,
+                ),
+              ],
+            ),
+          ),
+
+
+        ),
+
+      ],
     );
   }
 }
