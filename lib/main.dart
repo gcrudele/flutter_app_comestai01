@@ -54,11 +54,85 @@ class _MyHomePageState extends State<MyHomePage> {
           expandedHeight: 300,
           floating: true,
           pinned: true,
-          flexibleSpace: FlexibleSpaceBar(
-            title: Text("My City"),
-            background: Image.network(
-              "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg"
-              , fit: BoxFit.fill,),
+          flexibleSpace: ListView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              Container(
+                width: 450,
+              child: FlexibleSpaceBar(
+                title: Text("My City"),
+                background: Image.network(
+                  "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg"
+                  , fit: BoxFit.fill,),
+              ),
+            ),
+
+              Container(
+                width: 450,
+                child: FlexibleSpaceBar(
+                  title: Text("pippo"),
+                  background: Image.network(
+                    "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+                    , fit: BoxFit.fill,),
+                ),
+              ),
+              Container(
+                width: 450,
+                child: FlexibleSpaceBar(
+                  title: Text("pippo"),
+                  background: Image.network(
+                    "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg"
+                    , fit: BoxFit.fill,),
+                ),
+              ),
+              Container(
+                child: FlexibleSpaceBar(
+                  title: Text("pippo"),
+                  background: Image.network(
+                    "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg"
+                    , fit: BoxFit.fill,),
+                ),
+              ),
+              Container(
+                child: FlexibleSpaceBar(
+                  title: Text("pippo"),
+                  background: Image.network(
+                    "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg"
+                    , fit: BoxFit.fill,),
+                ),
+              ),
+              Container(
+                child: FlexibleSpaceBar(
+                  title: Text("pippo"),
+                  background: Image.network(
+                    "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg"
+                    , fit: BoxFit.fill,),
+                ),
+              ),
+              Container(
+                child: FlexibleSpaceBar(
+                  title: Text("pippo"),
+                  background: Image.network(
+                    "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg"
+                    , fit: BoxFit.fill,),
+                ),
+              ),
+              Container(
+                child: FlexibleSpaceBar(
+                  title: Text("pippo"),
+                  background: Image.network(
+                    "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg"
+                    , fit: BoxFit.fill,),
+                ),
+              ),
+
+
+
+
+
+
+
+            ]
           ),
           
         ),
